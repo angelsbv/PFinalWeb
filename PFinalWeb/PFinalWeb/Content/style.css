@@ -1,0 +1,178 @@
+﻿body {
+    padding-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.unableToSelect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+footer{
+    padding-top:0!important;
+    padding-bottom:0!important;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.contenido {
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+    -moz-box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+    box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+    margin: 40px auto;
+    padding: 10px !important;
+    transition: ease-in-out;
+}
+
+.contenido::after {
+    clear: both;
+    display: block;
+    content: '';
+}
+
+input:focus {
+    border-bottom: 1px solid #2196F3!important;
+    -webkit-box-shadow: 0 1px 0 0 #2196F3!important;
+    box-shadow: 0 1px 0 0 #2196F3!important;
+}
+input:not([type]):focus:not([readonly]) + label, 
+input[type=text]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=password]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=email]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=url]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=time]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=date]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=datetime]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=datetime-local]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=tel]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=number]:not(.browser-default):focus:not([readonly]) + label, 
+input[type=search]:not(.browser-default):focus:not([readonly]) + label, 
+textarea.materialize-textarea:focus:not([readonly]) + label {
+    color: #2196F3;
+}
+
+html {
+    line-height: 1.5;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+.materialert {
+    position: relative;
+    min-width: 150px;
+    padding: 15px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all 0.1s linear;
+    webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.materialert .material-icons {
+    margin-right: 10px;
+}
+
+.materialert .close-alert {
+    -webkit-appearance: none;
+    border: 0;
+    cursor: pointer;
+    color: inherit;
+    background: 0 0;
+    font-size: 22px;
+    line-height: 1;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .7);
+    filter: alpha(opacity=40);
+    margin-bottom: -5px;
+    position: absolute;
+    top: 16px;
+    right: 5px;
+}
+
+.materialert.info {
+    background-color: #039be5;
+    color: #fff;
+}
+
+.materialert.success {
+    background-color: #43a047;
+    color: #fff;
+}
+
+.materialert.error {
+    background-color: #c62828;
+    color: #fff;
+}
+
+.materialert.danger {
+    background-color: #c62828;
+    color: #fff;
+}
+
+.materialert.warning {
+    background-color: #fbc02d;
+    color: #fff;
+}
+
+.msg {
+    width: 100%;
+    border: 1px solid;
+    padding: 10px;
+    margin: 20px;
+    color: grey;
+}
+
+.msg-error {
+    background-color: #ef5350;
+    color: white;
+}
+
+.msg-alert {
+    border-color: #ef6c00;
+    background-color: #ff9800;
+    color: white;
+}
+
+.msg-info {
+    border-color: #0288d1;
+    background-color: #29b6f6;
+    color: white;
+}

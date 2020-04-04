@@ -1,0 +1,91 @@
+﻿@model PFinalWeb.Models.Admins
+
+@{
+    ViewBag.Title = "Registrate como administrador";
+}
+
+<link rel="stylesheet" href="~/Content/regresp.css" />
+@if (!Request.IsAuthenticated)
+{
+    if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+    {
+        if (ViewBag.Msg != null)
+        {
+            <div class="center div-alert materialert success" style="width:100%;">
+                <h3 class="center" style="width:100%;opacity:0.85;">
+                    <strong>
+                        Te haz registrado correctamente, ahora debes validar tu correo electrónico
+                        <br />accediendo al código de verificación que se te ha enviado.
+                    </strong>
+                </h3>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="row" style="margin-bottom:0!important;">
+            <div class="col s10 offset-s1 contenido-parent">
+                <div class="contenido m2">
+                    @Html.ValidationSummary(true, "", new { @class = "red-text" })
+                    <form action="~/admin/registration" method="post" class="col s12 offset-s2">
+                        @Html.AntiForgeryToken()
+                        <div class="row">
+                            <div class="col s8" style="padding:0px!important;">
+                                <h3>Crea tu cuenta</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <input id="username" type="text" class="validate" name="UserName" autocomplete="off">
+                                <label for="username" class="unableToSelect">Nombre de usuario</label>
+                                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "red-text unableToSelect" })
+                                @Html.ValidationMessage("UEKey", new { @class = "red-text unableToSelect" })
+                            </div>
+                            <div class="input-field col s4 inpfield-date">
+                                <input id="birth" type="date" class="validate" name="Birthdate" autocomplete="off">
+                                <label for="birth" class="unableToSelect">Fecha de nacimiento</label>
+                                @Html.ValidationMessageFor(model => model.Birthdate, "", new { @class = "red-text unableToSelect" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <input id="email" type="text" class="validate" name="Email" style="max-width:800px!important;" autocomplete="off">
+                                <label for="email" class="unableToSelect">Correo electrónico</label>
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "red-text unableToSelect" })
+                                @Html.ValidationMessage("EEKey", new { @class = "red-text unableToSelect" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <input id="pw" type="password" class="validate" name="Password" autocomplete="off">
+                                <label for="pw" class="unableToSelect">Contraseña</label>
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "red-text unableToSelect" })
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="cpw" type="password" class="validate" name="ConfirmPassword" autocomplete="off">
+                                <label for="cpw" class="unableToSelect">Confirmación</label>
+                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "red-text unableToSelect" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s8">
+                                <button type="submit" value="Registrarme"
+                                        class="btn waves-effect waves-teal white-text blue" style="width:100%">
+                                    Registrarme
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <script>
+        alert('No es necesario iniciar sesión dos veces...');
+        window.location.href = location.origin;
+    </script>
+}
+<script src="~/Scripts/register-script.js"></script>

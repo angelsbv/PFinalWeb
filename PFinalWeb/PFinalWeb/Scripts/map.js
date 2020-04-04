@@ -10,7 +10,7 @@ function callScript(script)
     $.ajax({
         url: script,
         dataType: "script",
-        async: false,           
+        async: true,           
         success: function () {
             loadMap();
         },
@@ -51,7 +51,7 @@ const loadMap = function()
     if(mapContainer != null)
     {
         mapContainer.innerHTML = "<div id='map' style='width: 100%; height: 100%;'></div>";
-        mapContainer.setAttribute("style", `height:490px;width:100%;margin:0px auto;margin-top:10px;margin-bottom:30px;`)
+        mapContainer.setAttribute("style", `height:490px;width:100%;margin:0px auto;margin-top:30px;margin-bottom:30px;`)
         map = L.map('map').setView([18.4666666667, -69.9], 7.23);
         
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { //carga capa desde leaflet 

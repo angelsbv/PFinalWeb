@@ -6,26 +6,30 @@ using System.Web.Mvc;
 
 namespace PFinalWeb.Controllers
 {
-    public class HomeController : Controller
+    public class ErrorController : Controller
     {
         public ActionResult Index()
         {
             return View();
         }
 
-        [Authorize]
-        public ActionResult About()
+        public ActionResult General()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
-        [Authorize]
-        public ActionResult Contact()
+        public ActionResult Error404()
         {
-            ViewBag.Message = "Your contact page.";
+            return View();
+        }
 
+        public ActionResult Error405()
+        {
+            return View();
+        }
+
+        public ActionResult Error500()
+        {
             return View();
         }
     }
