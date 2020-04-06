@@ -1,0 +1,82 @@
+﻿@model List<PFinalWeb.Models.Casos>
+
+@{
+    ViewBag.Title = "Casos";
+}
+<style>
+    .col.s4 {
+        min-width: 200px !important;
+        height: 30%;
+    }
+
+    .selected {
+        border: 2.42px solid #2196F3 !important;
+        -webkit-box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+        -moz-box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+        box-shadow: rgba(0,0,0,0.6) 0 0 2.67px;
+    }
+</style>
+<div class="row">
+    @foreach (var i in Model)
+    {
+        <div class="col s4">
+            <div class="card @(ViewBag.Selected != null && ViewBag.Selected == i.IDCaso ? "selected" : "")">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="~/NOFOTO.png">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">@i.Nombre @i.Apellido<i class="material-icons right" title="Más información">more_vert</i></span>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <div>
+                            <a title="Editar Caso" class="orange-text" href="~/home/editcaso/@i.IDCaso">
+                                <i class="material-icons">create</i>
+                            </a>
+                            <a title="Eliminar Caso" class="delCaso red-text" href="~/home/delcaso/@i.IDCaso">
+                                <i class="material-icons">delete_forever</i>
+                            </a>
+                        </div>
+                    }
+                </div>
+                <div class="card-reveal" style="color:#1b1b1b;">
+                    <span class="card-title grey-text text-darken-4"><b>@i.Nombre @i.Apellido</b><i class="material-icons right">close</i></span>
+                    <span class="card-title grey-text text-darken-4"><b>Información</b></span>
+                    <p><b>Fecha de contagio:</b> @i.FechaContagio.ToShortDateString()</p>
+                    <p><b>País:</b> @i.País</p>
+                    <p><b>Ciudad:</b> @i.Ciudad</p>
+                    <p><b>Cédula:</b> @i.Cedula</p>
+                    <p><b>Fecha de nacimiento:</b> @i.FechaNacimiento.ToShortDateString()</p>
+                    <p>
+                        <b>
+                            Comentario:
+                        </b> @i.Comentario
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<!--crr row-->
+@if (Request.IsAuthenticated)
+{
+    <div class="fixed-action-btn" title="Agregar Nuevo Caso">
+        <a href="~/Home/AgregarCaso" class="btn-floating btn-large green">
+            <i class="large material-icons unableToSelect">add</i>
+        </a>
+    </div>
+}
+<script defer>document.querySelector('main').classList.add('valign-wrapper');</script>
+<script>
+    try {
+        document.querySelectorAll('.delCaso').forEach(t => {
+            t.addEventListener('click', (e) => {
+                if (!confirm('¿Seguro que desea eliminar este caso?')) {
+                    e.preventDefault();
+                }
+            });
+        });
+    } catch (e) {
+        console.log(e)
+    }
+</script>

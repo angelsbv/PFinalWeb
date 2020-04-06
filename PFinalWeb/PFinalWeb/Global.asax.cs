@@ -23,8 +23,6 @@ namespace PFinalWeb
         {
             Exception ex = Server.GetLastError();
             Response.Clear();
-
-            //log exception here
             HttpException httpex = ex as HttpException;
             RouteData data = new RouteData();
             data.Values.Add("Controller", "Error");

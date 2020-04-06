@@ -243,7 +243,6 @@ namespace PFinalWeb.Controllers
             return View();
         }
 
-
         public ActionResult ResetPW(string id)
         {
             var adm = ctx.Admins.Where(a => a.RecoverPWDCode == id).FirstOrDefault();

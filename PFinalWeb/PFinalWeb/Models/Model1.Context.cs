@@ -26,5 +26,7 @@ namespace PFinalWeb.Models
         }
     
         public virtual DbSet<Admins> Admins { get; set; }
+        public virtual DbSet<Casos> Casos { get; set; }
+        public virtual DbSet<Noticias> Noticias { get; set; }
     }
 }

@@ -1,6 +1,6 @@
 ﻿@model List<PFinalWeb.Models.Noticias>
 @{
-    ViewBag.Title = "Página Principal";
+    ViewBag.Title = "Noticias";
 }
 <style>
     .col.s4 {
@@ -9,16 +9,12 @@
     }
 </style>
 <div class="row">
-    <div class="col s12">
-        <div id="mapp"></div>
-    </div>
-    <h2>Noticias</h2>
     @foreach (var i in Model)
     {
         <div class="col s4">
-            <div class="card small" style="min-height:300px;">
+            <div class="card" style="min-height:300px;">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" @("src=data:image/png;base64," + Convert.ToBase64String(i.Foto))>
+                    <img class="activator" @("src=data:image/png;base64,"+Convert.ToBase64String(i.Foto))>
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4" title="Más información">@i.Titulo<i class="material-icons right">more_vert</i></span>
@@ -45,26 +41,26 @@
         </div>
     }
 </div><!--crr row-->
+
 @if (Request.IsAuthenticated)
-    {
-<div class="fixed-action-btn" title="Agregar Nueva Noticia" style="z-index:12748;">
-    <a href="~/Home/AgregarNoticia" class="btn-floating btn-large green">
-        <i class="large material-icons unableToSelect">add</i>
-    </a>
-</div>
+{
+    <div class="fixed-action-btn" title="Agregar Nueva Noticia">
+        <a href="~/Home/AgregarNoticia" class="btn-floating btn-large green">
+            <i class="large material-icons unableToSelect">add</i>
+        </a>
+    </div>
 }
-<script defer>document.querySelector('main').classList.add('valign-wrapper');</script>
-<script src="~/Scripts/map.js" id="_2kdsaqjh1" defer></script>
-<script>
-    try {
-        document.querySelectorAll('.delCaso').forEach(t => {
-            t.addEventListener('click', (e) => {
-                if (!confirm('¿Seguro que desea eliminar esta noticia?')) {
-                    e.preventDefault();
-                }
+    <script defer>document.querySelector('main').classList.add('valign-wrapper');</script>
+    <script>
+        try {
+            document.querySelectorAll('.delCaso').forEach(t => {
+                t.addEventListener('click', (e) => {
+                    if (!confirm('¿Seguro que desea eliminar esta noticia?')) {
+                        e.preventDefault();
+                    }
+                });
             });
-        });
-    } catch (e) {
-        console.log(e)
-    }
-</script>
+        } catch (e) {
+            console.log(e)
+        }
+    </script>
