@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Estadísticas";
+}
+<link rel="stylesheet" href="~/Content/c3.css">
+<link rel="stylesheet" href="~/Content/stats.css"/>
+<div style="color:#1b1b1b;"><h4>Número de casos <span style="font-size:12px;opacity:0.85;">(signos zodiacales)</span></h4></div>
+<table class="responsive-table">
+    <thead>
+        <tr id="headers">
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="content">
+        </tr>
+    </tbody>
+</table>
+<div id="barChart"></div>
+<script src="~/Scripts/d3-5.8.2.min.js"></script>
+<script src="~/Scripts/c3.js"></script>
+<script src="~/Scripts/stats.js" defer></script>

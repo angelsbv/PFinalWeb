@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Admin Panel de Control";
+}
+
+@if (Request.IsAuthenticated)
+{
+
+    <div class="center">
+        <h1>Panel de Control: Admins</h1>
+
+        <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Noticias</a>
+        <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!">one</a></li>
+            <li><a href="#!">two</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="#!">three</a></li>
+            <li><a href="#!"><i class="material-icons">view_module</i>four</a></li>
+            <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
+        </ul>
+        @*<h4>Sección de admins </h4>
+        <small style="font-size:12px;opacity: 0.5">(Sitio en construcción)</small>*@
+    </div>
+}
+else
+{
+
+    <div class="center div-alert materialert danger" style="width:100%;">
+        <h3 class="center" style="width: 100%;opacity: 0.90;">
+            Actualmente posee 0% de los permisos para acceder a esta sección. <small style="font-size:15px;opacity: 0.5">(Estamos 100% seguros de eso)</small>
+        </h3>
+    </div>
+
+    <script defer>
+        var divAlert = document.querySelector(".div-alert");
+        if (divAlert != null)
+            document.querySelector('main').classList.add('valign-wrapper');
+    </script>
+}
