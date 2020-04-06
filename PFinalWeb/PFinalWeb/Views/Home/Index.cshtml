@@ -1,31 +1,70 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿@model List<PFinalWeb.Models.Noticias>
+@{
+    ViewBag.Title = "Página Principal";
 }
-<!--Rows & Cols-->
-@*<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
+<style>
+    .col.s4 {
+        min-width: 200px !important;
+        height: 30%;
+    }
+</style>
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+    <div class="col s12">
+        <div id="mapp"></div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>*@
+    <h2>Noticias</h2>
+    @foreach (var i in Model)
+    {
+        <div class="col s4">
+            <div class="card small" style="min-height:300px;">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" @("src=data:image/png;base64," + Convert.ToBase64String(i.Foto))>
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4" title="Más información">@i.Titulo<i class="material-icons right">more_vert</i></span>
+                    <p style="word-wrap: break-word;max-width:150px;">@i.Resumen</p>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <div style="position:absolute;top:90%;left:70%;z-index:1224;">
+                            <a title="Editar Noticia" class="orange-text" href="~/home/editnoticia/@i.IDNew">
+                                <i class="material-icons">create</i>
+                            </a>
+                            <a title="Eliminar Noticia" class="delCaso red-text" href="~/home/delnoticia/@i.IDNew">
+                                <i class="material-icons">delete_forever</i>
+                            </a>
+                        </div>
+                    }
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">@i.Titulo<i class="material-icons right">close</i></span>
+                    <p style="word-wrap: break-word;">
+                        @i.Contenido
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div><!--crr row-->
+@if (Request.IsAuthenticated)
+    {
+<div class="fixed-action-btn" title="Agregar Nueva Noticia" style="z-index:12748;">
+    <a href="~/Home/AgregarNoticia" class="btn-floating btn-large green">
+        <i class="large material-icons unableToSelect">add</i>
+    </a>
+</div>
+}
+<script defer>document.querySelector('main').classList.add('valign-wrapper');</script>
+<script src="~/Scripts/map.js" id="_2kdsaqjh1" defer></script>
+<script>
+    try {
+        document.querySelectorAll('.delCaso').forEach(t => {
+            t.addEventListener('click', (e) => {
+                if (!confirm('¿Seguro que desea eliminar esta noticia?')) {
+                    e.preventDefault();
+                }
+            });
+        });
+    } catch (e) {
+        console.log(e)
+    }
+</script>
