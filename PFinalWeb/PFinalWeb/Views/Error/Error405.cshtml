@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Error 405";
+}
+
+<div class="center" style="width:100%;">
+    <h2>Error <b class="materialize-red-text">4</b><b class="blue-grey-text">0</b><b class="blue-text">5</b></h2>
+    <div class="row">
+        <span style="width:60%;display:inline-block;color:#1b1b1b;font-size:20px;">
+            Su solicitud no pudo ser procesada,
+            <b>algún error</b> y/o falla ha ocurrido <small style="font-size:14px;opacity: 0.65">(Estamos 99.9% seguros de eso)</small>.
+        </span>
+    </div>
+    <a href="~/home" class="waves-effect waves-light btn-large blue darken-1" style="border-radius:10px;"><i class="material-icons right">home</i>Ir a la página principal</a>
+</div>
+<script defer>document.querySelector('main').classList.add('valign-wrapper');</script>
+<script async>
+    var arr = ["header", "footer"]
+    for (i in arr)
+        { document.querySelector(arr[i]).setAttribute("hidden", "hidden"); }
+</script>
+
+
