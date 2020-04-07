@@ -22,7 +22,7 @@
         <div class="col s4">
             <div class="card @(ViewBag.Selected != null && ViewBag.Selected == i.IDCaso ? "selected" : "")">
                 <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="~/NOFOTO.png">
+                    <img class="casoImg activator" src="~/NOFOTO.png">
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">@i.Nombre @i.Apellido<i class="material-icons right" title="Más información">more_vert</i></span>
@@ -44,7 +44,7 @@
                     <p><b>Fecha de contagio:</b> @i.FechaContagio.ToShortDateString()</p>
                     <p><b>País:</b> @i.País</p>
                     <p><b>Ciudad:</b> @i.Ciudad</p>
-                    <p><b>Cédula:</b> @i.Cedula</p>
+                    <p><b>Cédula:</b> <span class="Ceds">@i.Cedula</span></p>
                     <p><b>Fecha de nacimiento:</b> @i.FechaNacimiento.ToShortDateString()</p>
                     <p>
                         <b>
@@ -79,4 +79,24 @@
     } catch (e) {
         console.log(e)
     }
+</script>
+<script defer>
+    casoImg = document.querySelectorAll(".casoImg");
+    cedulas = document.querySelectorAll(".Ceds");
+    for (ced in cedulas)
+    {
+        setFoto(cedulas[ced].innerHTML, casoImg[ced]);
+    }
+    async function setFoto(cedula, casoImg) {
+        try {
+            const resp = await fetch("http://173.249.49.169:88/api/test/consulta/" + cedula);
+            const data = await resp.json();
+            if (data.Ok) {
+                casoImg.src = data.Foto;
+            }
+        } catch (errs) {
+            console.log(errs)
+        }
+    }
+
 </script>
