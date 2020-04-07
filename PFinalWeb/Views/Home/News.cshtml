@@ -1,0 +1,67 @@
+﻿<link rel="styleheet" href="~/content/news.css"/>
+@model List<PFinalWeb.Models.Noticias>
+@{
+    ViewBag.Title = "Noticias";
+}
+<style>
+    .col.s4 {
+        min-width: 200px !important;
+        height: 30%;
+    }
+</style>
+<div class="row">
+    @foreach (var i in Model)
+    {
+        <div class="col s4">
+            <div class="card smallcadera">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" @("src=data:image/png;base64,"+Convert.ToBase64String(i.Foto))>
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4" title="Más información">@i.Titulo<i class="material-icons right">more_vert</i></span>
+                    <p class="smalltirradereyes">@i.Resumen</p>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <div class="smallaguila">
+                            <a title="Editar Noticia" class="orange-text" href="~/home/editnoticia/@i.IDNew">
+                                <i class="material-icons">create</i>
+                            </a>
+                            <a title="Eliminar Noticia" class="delCaso red-text" href="~/home/delnoticia/@i.IDNew">
+                                <i class="material-icons">delete_forever</i>
+                            </a>
+                        </div>
+                    }
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">@i.Titulo<i class="material-icons right">close</i></span>
+                    <p class="smallcriminal">
+                        @i.Contenido
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div><!--crr row-->
+
+@if (Request.IsAuthenticated)
+{
+    <div class="fixed-action-btn" title="Agregar Nueva Noticia">
+        <a href="~/Home/AgregarNoticia" class="btn-floating btn-large green">
+            <i class="large material-icons unableToSelect">add</i>
+        </a>
+    </div>
+}
+    <script defer>document.querySelector('main').classList.add('valign-wrapper');</script>
+    <script>
+        try {
+            document.querySelectorAll('.delCaso').forEach(t => {
+                t.addEventListener('click', (e) => {
+                    if (!confirm('¿Seguro que desea eliminar esta noticia?')) {
+                        e.preventDefault();
+                    }
+                });
+            });
+        } catch (e) {
+            console.log(e)
+        }
+    </script>

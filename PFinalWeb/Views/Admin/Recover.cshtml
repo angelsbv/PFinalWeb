@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Recuperar Contraseña";
+}
+
+<link rel="stylesheet" href="~/Content/loginsbc.css" />
+<link rel="stylesheet" href="~/Content/recover.css" />
+@if (ViewBag.Status == null || ViewBag.Status == false)
+{
+    <div class="container loginsbc-container">
+        <div class="row _sag3">
+            <div class="col s12 _sag4">
+                <div id="content" class="m2">
+                    <div class="light-blue darken-2 login-header">
+                        <span class="smallazul">Recupera tu cuenta</span>
+                    </div>
+                    <form action="~/admin/recover" method="POST" class="col s12 offset-s1">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="row">
+                            <div class="col s10 left" style="color:#1b1b1b;">
+                                Queremos ayudarte a recuperar tu cuenta, pero
+                                antes debes ayudarnos con lo siguiente:
+                                Primero debes digitar tu nombre de usuario o correo electrónico.
+                                Luego, debes seguir las indicaciones... <small class="smallrojo">(Todos felices).</small>
+                            </div>
+                            <div class="input-field col s10">
+                                <input name="UserEmail" id="Username" autocapitalize="off" , autocomplete="off" type="text" />
+                                <label for="Username">Usuario / Email</label>
+                                @if (ViewBag.Msg != null)
+                                {<span class="center materialize-red-text _00sPNViewBag">@ViewBag.Msg</span>}
+                            </div>
+                            <div class="col s10 center">
+                                <button type="submit" value="Acceder"
+                                        class="btn waves-effect waves-teal white-text blue" style="width:100%">
+                                    Recuperar
+                                </button>
+                            </div>
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+<div class="valign-wrapper div-alert-parent" style="width:100%;">
+    <div class="center div-alert materialert success smallritmo">
+        <p class="smallcenterA">@ViewBag.Msg</p>
+    </div>
+</div>
+}
+<script defer>document.querySelector('main').classList.add('valign-wrapper');</script>
+

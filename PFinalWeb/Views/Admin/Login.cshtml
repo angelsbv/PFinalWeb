@@ -1,0 +1,104 @@
+@model PFinalWeb.Models.AdminLogin
+
+@{
+    ViewBag.Title = "Acceder";
+}
+<link rel="stylesheet" href="~/Content/loginsbc.css" />
+<link rel="stylesheet" href="~/Content/logins.css" />
+@if (!Request.IsAuthenticated)
+{  
+<div class="container loginsbc-container">
+    <div class="row _sag3">
+        <div class="col s12 _sag4">
+            <div id="content" class="m2">
+                <div class="light-blue darken-2 login-header">
+                    <span class="_spn0x24header">Digite sus datos de administrador</span>
+                </div>
+                @if (TempData["Msg"] != null && TempData["Msg"] != "")
+                {
+                    <div class="valign-wrapper div-alert-parent" style="width:100%;">
+                        <div class="center div-alert materialert danger pulse smallnegro">@*CLASE PULSE PARA TEST, PUEDE SER REMOVIDA*@
+                            <p class="smallmorado">@TempData["Msg"]</p>
+                        </div>
+                    </div>
+                }
+                <form action="~/admin/login" method="POST" class="col s12 offset-s1">
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="row">
+                        <div class="input-field col s10">
+                            @Html.EditorFor(model => model.Username, new { htmlAttributes = new { autocapitalize = "off", autocomplete = "off" } })
+                            <label for="Username">Nombre de usuario</label>
+                        </div>
+                        <div class="input-field col s10">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { autocapitalize = "off", autocomplete = "off" } })
+                            <label for="Password">Contraseña</label>
+                        </div>
+                        <div class="col s10">
+                            <div class="col s6">
+                                <label title="No recomendado si accede desde un equipo público.">
+                                    @*@Html.EditorFor(model => model.RememberMe, "", new { type = "checkbox" })*@
+
+                                    <input type="checkbox" name="RememberMe" checked="checked" />
+                                    <span class="spn0x24rememberMe">Recordarme</span>
+                                </label>
+                                <br />
+                                <a href="~/admin/recover" style="display:inline-block">¿Haz olvidado tu contraseña?</a>
+                                <a href="~/admin/registration" style="display:inline-block">¿No tienes una cuenta?</a>
+                            </div>
+                            <div class="col s5 right">
+                                <button type="submit" value="Acceder"
+                                        class="btn waves-effect waves-teal white-text blue" style="width:100%">
+                                    Acceder
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+}
+else
+{
+    <script>
+        alert('No es necesario iniciar sesión dos veces...');
+        window.location.href = location.origin;
+    </script>
+}
+<script defer>document.querySelector('main').classList.add('valign-wrapper');</script>
+<script defer>
+    var divAlertParent = document.querySelector('.div-alert-parent');
+    if (divAlertParent != null)
+    {
+        document.querySelector('form').style.marginTop = '5px';
+        document.querySelectorAll('.input-field').forEach(t => { t.style.marginTop = '0' })
+        document.querySelector("#content").style.marginTop = '15px'
+        setTimeout(() => {
+            document.querySelector('form').style.marginTop = '25px'
+            document.querySelectorAll('.input-field').forEach(t => { t.style.marginTop = '1rem'; })
+            document.querySelector('.div-alert-parent').remove();
+        }, 10124)
+    }
+</script>
+@*<script>
+    form = document.querySelector('form')
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        let formData = new FormData(form)
+        console.log(formData)
+        var settings = {
+            method: 'POST',
+            body: formData
+        }
+        try {
+            var res = await fetch('@Url.Action("Login")', settings)
+            console.log(res);
+        } catch (e) {
+            console.log(e)
+        }
+        
+    });
+    
+</script>*@
