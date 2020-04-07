@@ -5,7 +5,7 @@
 }
 <link rel="stylesheet" href="~/Content/loginsbc.css" />
 @if (!Request.IsAuthenticated)
-{
+{  
 <div class="container loginsbc-container">
     <div class="row _sag3">
         <div class="col s12 _sag4">
@@ -16,8 +16,8 @@
                 @if (TempData["Msg"] != null && TempData["Msg"] != "")
                 {
                     <div class="valign-wrapper div-alert-parent" style="width:100%;">
-                        <div class="center div-alert materialert danger pulse" style="margin-bottom:15px;">@*CLASE PULSE PARA TEST, PUEDE SER REMOVIDA*@
-                            <p class="center" style="width:100%;opacity: 0.90;">@TempData["Msg"]</p>
+                        <div class="center div-alert materialert danger pulse" class="smallnegro">@*CLASE PULSE PARA TEST, PUEDE SER REMOVIDA*@
+                            <p class="smallmorado">@TempData["Msg"]</p>
                         </div>
                     </div>
                 }

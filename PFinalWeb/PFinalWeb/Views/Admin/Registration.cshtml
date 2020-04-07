@@ -12,7 +12,7 @@
         if (ViewBag.Msg != null)
         {
             <div class="center div-alert materialert success" style="width:100%;">
-                <h3 class="center" style="width:100%;opacity:0.85;">
+                <h3 class="smallglass">
                     <strong>
                         Te haz registrado correctamente, ahora debes validar tu correo electrónico
                         <br />accediendo al código de verificación que se te ha enviado.
@@ -23,7 +23,7 @@
     }
     else
     {
-        <div class="row" style="margin-bottom:0!important;">
+        <div class="smallrow">
             <div class="col s10 offset-s1 contenido-parent">
                 <div class="contenido m2">
                     @Html.ValidationSummary(true, "", new { @class = "red-text" })
@@ -49,7 +49,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s8">
-                                <input id="email" type="text" class="validate" name="Email" style="max-width:800px!important;" autocomplete="off">
+                                <input id="email" type="text" class="validate" name="Email" class="smallnemo"autocomplete="off">
                                 <label for="email" class="unableToSelect">Correo electrónico</label>
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "red-text unableToSelect" })
                                 @Html.ValidationMessage("EEKey", new { @class = "red-text unableToSelect" })

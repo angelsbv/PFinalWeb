@@ -5,7 +5,7 @@
 
 @if (Request.IsAuthenticated)
 {
-
+    <link rel="stylesheet" href="~/" />
     <div class="center">
         <h1>Panel de Control: Admins</h1>
 
@@ -19,15 +19,15 @@
             <li><a href="#!"><i class="material-icons">cloud</i>five</a></li>
         </ul>
         @*<h4>Sección de admins </h4>
-        <small style="font-size:12px;opacity: 0.5">(Sitio en construcción)</small>*@
+        <small class="amarillo">(Sitio en construcción)</small>*@
     </div>
 }
 else
 {
 
     <div class="center div-alert materialert danger" style="width:100%;">
-        <h3 class="center" style="width: 100%;opacity: 0.90;">
-            Actualmente posee 0% de los permisos para acceder a esta sección. <small style="font-size:15px;opacity: 0.5">(Estamos 100% seguros de eso)</small>
+        <h3 class="center smalladmin">
+            Actualmente posee 0% de los permisos para acceder a esta sección. <small class="_ashf0uiqwt">(Estamos 100% seguros de eso)</small>
         </h3>
     </div>
 
