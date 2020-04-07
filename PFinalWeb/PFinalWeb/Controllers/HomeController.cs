@@ -208,7 +208,7 @@ namespace PFinalWeb.Controllers
             {
                 ctx.Casos.Add(p);
                 ctx.SaveChanges();
-                await Bot.SendTextMessageAsync("@aascovid19info", $"Nuevo caso agregado (Nombre del infectado: {p.Nombre} {p.Apellido}) " +
+                await Bot.SendTextMessageAsync("@aascovid19info", $"Nuevo caso agregado (Nombre del infectado: {p.Nombre} {p.Apellido}). Para más información puede visitar nuestra página." +
                     $":( #QuedateEnCasa");
                 return RedirectToAction(nameof(Index));
             }
