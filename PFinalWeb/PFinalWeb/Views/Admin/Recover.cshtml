@@ -3,6 +3,7 @@
 }
 
 <link rel="stylesheet" href="~/Content/loginsbc.css" />
+<link rel="stylesheet" href="~/Content/recover.css" />
 @if (ViewBag.Status == null || ViewBag.Status == false)
 {
     <div class="container loginsbc-container">
@@ -26,7 +27,7 @@
                                 <input name="UserEmail" id="Username" autocapitalize="off" , autocomplete="off" type="text" />
                                 <label for="Username">Usuario / Email</label>
                                 @if (ViewBag.Msg != null)
-                                {<span class="center materialize-red-text" style="width:100%;opacity: 0.90;">@ViewBag.Msg</span>}
+                                {<span class="center materialize-red-text _00sPNViewBag">@ViewBag.Msg</span>}
                             </div>
                             <div class="col s10 center">
                                 <button type="submit" value="Acceder"
@@ -45,7 +46,7 @@
 else
 {
 <div class="valign-wrapper div-alert-parent" style="width:100%;">
-    <div class="center div-alert materialert success" class="smallritmo">
+    <div class="center div-alert materialert success smallritmo">
         <p class="smallcenterA">@ViewBag.Msg</p>
     </div>
 </div>

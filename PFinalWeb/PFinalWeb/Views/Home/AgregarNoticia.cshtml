@@ -1,11 +1,11 @@
-﻿@model PFinalWeb.Models.Noticias
+﻿<link rel="stylesheet" href="~/Content/agregarnoticias.css"/> 
+@model PFinalWeb.Models.Noticias
 
 @{
     ViewBag.Title = "Agregando Noticia";
 }
 
 <h2>Agregar Noticia</h2>
-<style>#Contenido:focus{outline:none!important;border:0px solid black!important;box-shadow:none}</style>
 @using (Html.BeginForm("AgregarNoticia", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
@@ -39,7 +39,7 @@
 
         <div class="input-field col s4" style="max-height: 300px; ">
             <label class="" for="Contenido">Contenido</label>
-            <textarea style="max-height:140px!important;max-width:223px!important" id="Contenido" name="Contenido" data-length="1000"></textarea>
+            <textarea class="smallcafecito" id="Contenido" name="Contenido" data-length="1000"></textarea>
             <span class="field-validation-valid red-text unableToSelect"></span>
         </div>
 

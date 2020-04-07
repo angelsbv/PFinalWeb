@@ -4,6 +4,7 @@
     ViewBag.Title = "Acceder";
 }
 <link rel="stylesheet" href="~/Content/loginsbc.css" />
+<link rel="stylesheet" href="~/Content/logins.css" />
 @if (!Request.IsAuthenticated)
 {  
 <div class="container loginsbc-container">
@@ -11,12 +12,12 @@
         <div class="col s12 _sag4">
             <div id="content" class="m2">
                 <div class="light-blue darken-2 login-header">
-                    <span style="font-size:24px;font-weight:600;">Digite sus datos de administrador</span>
+                    <span class="_spn0x24header">Digite sus datos de administrador</span>
                 </div>
                 @if (TempData["Msg"] != null && TempData["Msg"] != "")
                 {
                     <div class="valign-wrapper div-alert-parent" style="width:100%;">
-                        <div class="center div-alert materialert danger pulse" class="smallnegro">@*CLASE PULSE PARA TEST, PUEDE SER REMOVIDA*@
+                        <div class="center div-alert materialert danger pulse smallnegro">@*CLASE PULSE PARA TEST, PUEDE SER REMOVIDA*@
                             <p class="smallmorado">@TempData["Msg"]</p>
                         </div>
                     </div>
@@ -38,7 +39,7 @@
                                 <label title="No recomendado si accede desde un equipo público.">
                                     @*@Html.EditorFor(model => model.RememberMe, "", new { type = "checkbox" })*@
                                     <input type="checkbox" name="RememberMe" />
-                                    <span style="padding-left: 23px!important;color:#000!important;opacity:0.97;">Recordarme</span>
+                                    <span class="spn0x24rememberMe">Recordarme</span>
                                 </label>
                                 <br />
                                 <a href="~/admin/recover" style="display:inline-block">¿Haz olvidado tu contraseña?</a>
