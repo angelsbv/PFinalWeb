@@ -10,7 +10,7 @@
             <div class="col s12 _sag4">
                 <div id="content" class="m2">
                     <div class="light-blue darken-2 login-header">
-                        <span style="font-size:24px;font-weight:600;">Recupera tu cuenta</span>
+                        <span class="smallazul">Recupera tu cuenta</span>
                     </div>
                     <form action="~/admin/recover" method="POST" class="col s12 offset-s1">
                         @Html.AntiForgeryToken()
@@ -20,7 +20,7 @@
                                 Queremos ayudarte a recuperar tu cuenta, pero
                                 antes debes ayudarnos con lo siguiente:
                                 Primero debes digitar tu nombre de usuario o correo electrónico.
-                                Luego, debes seguir las indicaciones... <small style="font-size:12px;opacity: 0.7">(Todos felices).</small>
+                                Luego, debes seguir las indicaciones... <small class="smallrojo">(Todos felices).</small>
                             </div>
                             <div class="input-field col s10">
                                 <input name="UserEmail" id="Username" autocapitalize="off" , autocomplete="off" type="text" />
@@ -45,8 +45,8 @@
 else
 {
 <div class="valign-wrapper div-alert-parent" style="width:100%;">
-    <div class="center div-alert materialert success" style="margin-bottom:15px;width:80%;">
-        <p class="center" style="width:100%;opacity: 0.85;font-size:32px;">@ViewBag.Msg</p>
+    <div class="center div-alert materialert success" class="smallritmo">
+        <p class="smallcenterA">@ViewBag.Msg</p>
     </div>
 </div>
 }
