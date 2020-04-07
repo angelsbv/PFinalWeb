@@ -5,6 +5,7 @@
 }
 
 <link rel="stylesheet" href="~/Content/regresp.css" />
+<link rel="stylesheet" href="~/Content/Registration.css"/>
 @if (!Request.IsAuthenticated)
 {
     if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
@@ -49,7 +50,7 @@
                         </div>
                         <div class="row">
                             <div class="input-field col s8">
-                                <input id="email" type="text" class="validate" name="Email" class="smallnemo"autocomplete="off">
+                                <input id="email" type="text" class="validate smallnemo" name="Email" autocomplete="off">
                                 <label for="email" class="unableToSelect">Correo electrónico</label>
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "red-text unableToSelect" })
                                 @Html.ValidationMessage("EEKey", new { @class = "red-text unableToSelect" })
