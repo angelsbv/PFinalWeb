@@ -6,7 +6,8 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
-
+using Telegram.Bot;
+using System.Threading.Tasks;
 
 namespace PFinalWeb.Controllers
 {
@@ -14,14 +15,14 @@ namespace PFinalWeb.Controllers
     {
 
         private readonly PFinalWebContext ctx;
-
+        private readonly TelegramBotClient Bot = new TelegramBotClient("1280484365:AAH-8O49NOI4VapP5h0-4kH0EdxNAzW76Og");
         public HomeController()
         {
             PFinalWebContext context = new PFinalWebContext();
             ctx = context;
         }
 
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
             return View(ctx.Noticias.ToList());
         }
@@ -201,12 +202,14 @@ namespace PFinalWeb.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult AgregarCaso(Casos p)
+        public async Task<ActionResult> AgregarCaso(Casos p)
         {
             if (ModelState.IsValid)
             {
                 ctx.Casos.Add(p);
                 ctx.SaveChanges();
+                await Bot.SendTextMessageAsync("@aascovid19info", $"Nuevo caso agregado (Nombre del infectado: {p.Nombre} {p.Apellido}) " +
+                    $":( #QuedateEnCasa");
                 return RedirectToAction(nameof(Index));
             }
             else
@@ -289,6 +292,11 @@ namespace PFinalWeb.Controllers
         }
 
         public ActionResult Stats()
+        {
+            return View();
+        }
+
+        public ActionResult Suscribete()
         {
             return View();
         }
