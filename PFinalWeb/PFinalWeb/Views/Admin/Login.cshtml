@@ -1,4 +1,4 @@
-﻿@model PFinalWeb.Models.AdminLogin
+@model PFinalWeb.Models.AdminLogin
 
 @{
     ViewBag.Title = "Acceder";
@@ -38,7 +38,8 @@
                             <div class="col s6">
                                 <label title="No recomendado si accede desde un equipo público.">
                                     @*@Html.EditorFor(model => model.RememberMe, "", new { type = "checkbox" })*@
-                                    <input type="checkbox" name="RememberMe" />
+
+                                    <input type="checkbox" name="RememberMe" checked="checked" />
                                     <span class="spn0x24rememberMe">Recordarme</span>
                                 </label>
                                 <br />
