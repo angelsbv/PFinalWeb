@@ -393,6 +393,9 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Telegram.Bot, Version=15.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telegram.Bot.15.5.1\lib\net45\Telegram.Bot.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
@@ -460,6 +463,7 @@
     <Content Include="Content\materialize.min.css" />
     <Content Include="Content\regresp.css" />
     <Content Include="Content\stats.css" />
+    <Content Include="Content\suscribete.css" />
     <Content Include="Coords.asmx" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -647,6 +651,7 @@
     <Content Include="Views\Home\AgregarNoticia.cshtml" />
     <Content Include="Views\Home\EditNoticia.cshtml" />
     <Content Include="Views\Home\Stats.cshtml" />
+    <Content Include="Views\Home\Suscribete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
