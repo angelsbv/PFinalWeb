@@ -457,13 +457,31 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Adminpc.css" />
+    <Content Include="Content\agregarnoticias.css" />
     <Content Include="Content\c3.css" />
+    <Content Include="Content\Editcaso.css" />
+    <Content Include="Content\editnoticias.css" />
+    <Content Include="Content\ErrIndex.css" />
+    <Content Include="Content\error404.css" />
+    <Content Include="Content\Error405.css" />
+    <Content Include="Content\Error500.css" />
+    <Content Include="Content\General.css" />
+    <Content Include="Content\Index.css" />
+    <Content Include="Content\indexx.css" />
+    <Content Include="Content\logins.css" />
     <Content Include="Content\loginsbc.css" />
     <Content Include="Content\materialize.css" />
     <Content Include="Content\materialize.min.css" />
+    <Content Include="Content\news.css" />
+    <Content Include="Content\recover.css" />
+    <Content Include="Content\Registration.css" />
     <Content Include="Content\regresp.css" />
+    <Content Include="Content\Resetpw.css" />
     <Content Include="Content\stats.css" />
+    <Content Include="Content\Statss.css" />
     <Content Include="Content\suscribete.css" />
+    <Content Include="Content\verifyaccount.css" />
     <Content Include="Coords.asmx" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

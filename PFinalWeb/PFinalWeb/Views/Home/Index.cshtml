@@ -1,4 +1,4 @@
-﻿<link rel="styleheet" href="~/content/indexx.css"/>
+﻿<link rel="styleheet" href="~/content/indexx.css" />
 @model List<PFinalWeb.Models.Noticias>
 @{
     ViewBag.Title = "Página Principal";
@@ -17,16 +17,16 @@
     @foreach (var i in Model)
     {
         <div class="col s4">
-            <div class="smallcaramelo">
+            <div class="card small" style="min-height:300px;">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" @("src=data:image/png;base64," + Convert.ToBase64String(i.Foto))>
                 </div>
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4" title="Más información">@i.Titulo<i class="material-icons right">more_vert</i></span>
-                    <p class="smallA.A">@i.Resumen</p>
+                    <p style="word-wrap: break-word;max-width:150px;">@i.Resumen</p>
                     @if (Request.IsAuthenticated)
                     {
-                        <div class="smallfresaconnutella">
+                        <div style="position:absolute;top:90%;left:70%;z-index:1224;">
                             <a title="Editar Noticia" class="orange-text" href="~/home/editnoticia/@i.IDNew">
                                 <i class="material-icons">create</i>
                             </a>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="card-reveal">
                     <span class="card-title grey-text text-darken-4">@i.Titulo<i class="material-icons right">close</i></span>
-                    <p class="smallDuran">
+                    <p style="word-wrap: break-word;">
                         @i.Contenido
                     </p>
                 </div>
@@ -47,12 +47,12 @@
     }
 </div><!--crr row-->
 @if (Request.IsAuthenticated)
-    {
-<div class="fixed-action-btn" title="Agregar Nueva Noticia" style="z-index:12748;">
-    <a href="~/Home/AgregarNoticia" class="btn-floating btn-large green">
-        <i class="large material-icons unableToSelect">add</i>
-    </a>
-</div>
+{
+    <div class="fixed-action-btn" title="Agregar Nueva Noticia" style="z-index:12748;">
+        <a href="~/Home/AgregarNoticia" class="btn-floating btn-large green">
+            <i class="large material-icons unableToSelect">add</i>
+        </a>
+    </div>
 }
 <script defer>document.querySelector('main').classList.add('valign-wrapper');</script>
 <script src="~/Scripts/map.js" id="_2kdsaqjh1" defer></script>
