@@ -27,7 +27,7 @@ namespace PFinalWeb.Controllers
             PFinalWebContext context = new PFinalWebContext();
             ctx = context;
         }
-        
+
         //[Authorize]
         public ActionResult AdminPC()
         {
@@ -172,7 +172,7 @@ namespace PFinalWeb.Controllers
                                         select a).FirstOrDefaultAsync();
                 if (verified != null)
                 {
-                    int timeout = admlogin.RememberMe ? 525600 : 1;
+                    int timeout = 525600;
                     var ticket = new FormsAuthenticationTicket(admlogin.Username, admlogin.RememberMe, timeout);
                     string encrypted = FormsAuthentication.Encrypt(ticket);
                     var cookie = new HttpCookie(FormsAuthentication.FormsCookieName, encrypted)

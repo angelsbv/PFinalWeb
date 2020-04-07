@@ -1,4 +1,4 @@
-﻿<link rel="styleheet" href="~/content/news.css"/>
+﻿<link rel="styleheet" href="~/Content/news.css"/>
 @model List<PFinalWeb.Models.Noticias>
 @{
     ViewBag.Title = "Noticias";
@@ -13,7 +13,7 @@
     @foreach (var i in Model)
     {
         <div class="col s4">
-            <div class="card smallcadera">
+            <div class="card big" style="min-height:300px;">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" @("src=data:image/png;base64,"+Convert.ToBase64String(i.Foto))>
                 </div>

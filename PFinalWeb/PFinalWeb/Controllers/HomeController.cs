@@ -22,7 +22,7 @@ namespace PFinalWeb.Controllers
             ctx = context;
         }
 
-        public async Task<ActionResult> Index()
+        public ActionResult Index()
         {
             return View(ctx.Noticias.ToList());
         }
