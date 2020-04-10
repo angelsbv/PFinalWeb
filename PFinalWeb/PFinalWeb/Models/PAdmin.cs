@@ -14,8 +14,8 @@ namespace PFinalWeb.Models
         [Display(Name = "Nombre de usuario")]
         public string UserName { get; set; }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Debe digitar su correo electrónico.")]
-        [Display(Name = "Correo electrónico")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Debe digitar su correo electr&oacute;nico.")]
+        [Display(Name = "Correo electr&oacute;nico")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
@@ -26,15 +26,15 @@ namespace PFinalWeb.Models
         public Nullable<System.DateTime> Birthdate { get; set; }
         
         [Required(AllowEmptyStrings = false, ErrorMessage = "Este campo es requerido.")]
-        [Display(Name = "Contraseña")]
+        [Display(Name = "Contrase&ntilde;a")]
         [DataType(DataType.Password)]
-        [MinLength(6, ErrorMessage = "la contraseña debe ser mínimo de 6 digitos.")]
+        [MinLength(6, ErrorMessage = "la contrase&ntilde;a debe ser m&iacute;nimo de 6 digitos.")]
         public string Password { get; set; }
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Este campo es requerido.")]
-        [Display(Name = "Confirmación")]
+        [Display(Name = "Confirmaci&oacute;n")]
         [DataType(DataType.Password)]
-        [Compare(nameof(Password), ErrorMessage = "Las contraseñas no coinciden. Vuelve a intentarlo.")]
+        [Compare(nameof(Password), ErrorMessage = "Las contrase&ntilde;as no coinciden. Vuelve a intentarlo.")]
         public string ConfirmPassword { get; set; }
     }
 

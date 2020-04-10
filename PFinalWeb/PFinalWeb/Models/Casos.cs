@@ -18,7 +18,7 @@ namespace PFinalWeb.Models
         public string Nombre { get; set; }
         public string Apellido { get; set; }
         public string Cedula { get; set; }
-        public string PaÃ­s { get; set; }
+        public string País { get; set; }
         public string Ciudad { get; set; }
         public decimal Latitud { get; set; }
         public decimal Longitud { get; set; }

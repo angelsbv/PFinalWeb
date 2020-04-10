@@ -22,7 +22,7 @@
                     <img class="activator" @("src=data:image/png;base64," + Convert.ToBase64String(i.Foto))>
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4" title="Más información">@i.Titulo<i class="material-icons right">more_vert</i></span>
+                    <span class="card-title activator grey-text text-darken-4" title="M&aacute;s informaci&oacute;n">@i.Titulo<i class="material-icons right">more_vert</i></span>
                     <p style="word-wrap: break-word;max-width:150px;">@i.Resumen</p>
                     @if (Request.IsAuthenticated)
                     {

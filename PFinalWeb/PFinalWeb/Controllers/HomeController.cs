@@ -34,6 +34,7 @@ namespace PFinalWeb.Controllers
         }
         
         [HttpGet]
+        [Authorize]
         public ActionResult AgregarNoticia()
         {
             return View();
@@ -41,6 +42,7 @@ namespace PFinalWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public ActionResult AgregarNoticia(Noticias noti)
         {
             if(Request.Files.Count > 0)
@@ -80,7 +82,7 @@ namespace PFinalWeb.Controllers
         }
 
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         public ActionResult EditNoticia(int? id)
         {
             if (id != null)
@@ -103,7 +105,7 @@ namespace PFinalWeb.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        //[Authorize]
+        [Authorize]
         public ActionResult EditNoticia(Noticias noti)
         {
             var c = ctx.Noticias.Find(noti.IDNew);
@@ -169,8 +171,8 @@ namespace PFinalWeb.Controllers
             }
         }
 
-        [Authorize]
         [HttpGet]
+        [Authorize]
         public ActionResult DelNoticia(int id)
         {
             if (ModelState.IsValid)
@@ -208,7 +210,7 @@ namespace PFinalWeb.Controllers
             {
                 ctx.Casos.Add(p);
                 ctx.SaveChanges();
-                await Bot.SendTextMessageAsync("@aascovid19info", $"Nuevo caso agregado (Nombre del infectado: {p.Nombre} {p.Apellido}). Para más información puede visitar nuestra página." +
+                await Bot.SendTextMessageAsync("@aascovid19info", $"Nuevo caso agregado (Nombre del infectado: {p.Nombre} {p.Apellido}). Para más informaci&oacute;n puede visitar nuestra p&aacute;gina." +
                     $":( #QuedateEnCasa");
                 return RedirectToAction(nameof(Index));
             }

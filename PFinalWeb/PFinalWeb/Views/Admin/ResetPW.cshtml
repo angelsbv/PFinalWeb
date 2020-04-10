@@ -11,7 +11,7 @@
         <div class="col s12 _sag4">
             <div id="content" class="m2">
                 <div class="light-blue darken-2 login-header">
-                    <span class="smallmoon">Establece tu nueva contraseña</span>
+                    <span class="smallmoon">Establece tu nueva contrase&ntilde;a</span>
                 </div>
                 @if (TempData["Msg"] != null && TempData["Msg"] != "")
                 {
@@ -28,11 +28,11 @@
                     <div class="row">
                         <div class="input-field col s10">
                             @Html.EditorFor(model => model.NewPassword, new { htmlAttributes = new { autocapitalize = "off", autocomplete = "off" } })
-                            <label for="NewPassword">Nueva contraseña</label>
+                            <label for="NewPassword">Nueva contrase&ntilde;a</label>
                         </div>
                         <div class="input-field col s10">
                             @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { autocapitalize = "off", autocomplete = "off" } })
-                            <label for="ConfirmPassword">Contraseña</label>
+                            <label for="ConfirmPassword">Contrase&ntilde;a</label>
                         </div>
                         <div class="col s10">
                             <div class="col s6">
@@ -64,9 +64,9 @@
         document.querySelector('form').style.marginTop = '25px'
         document.querySelectorAll('.input-field').forEach(t => { t.style.marginTop = '1rem'; })
         document.querySelector('.div-alert-parent').remove();
-        if (document.querySelector('.p-alert').innerHTML == 'La nueva contraseña ha sido establecida correctamente.') {
+        if (document.querySelector('.p-alert').innerHTML == 'La nueva contrase&ntilde;a ha sido establecida correctamente.') {
             location.href = location.origin;
-        } else if (document.querySelector('.p-alert').innerHTML == 'El código no es válido.') {
+        } else if (document.querySelector('.p-alert').innerHTML == 'El c&oacute;digo no es v&aacute;lido.') {
             location.href = location.origin;
         }
     }, 10124)

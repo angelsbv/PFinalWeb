@@ -30,7 +30,7 @@
         zods = []
         for(x in data)
         {
-            // console.log('año: '+prts[2]+'\nmes: '+ (prts[1]-1) +'\ndia: '+ prts[0])
+            // console.log('a&ntilde;o: '+prts[2]+'\nmes: '+ (prts[1]-1) +'\ndia: '+ prts[0])
             var prts = data[x][5].split('/');
             date = new Date(prts[2], prts[1]-1, prts[0])
             zod = getZodiac(date.getMonth()+1, date.getDate())

@@ -32,19 +32,19 @@
                         </div>
                         <div class="input-field col s10">
                             @Html.EditorFor(model => model.Password, new { htmlAttributes = new { autocapitalize = "off", autocomplete = "off" } })
-                            <label for="Password">Contraseña</label>
+                            <label for="Password">Contrase&ntilde;a</label>
                         </div>
                         <div class="col s10">
                             <div class="col s6">
-                                <label title="No recomendado si accede desde un equipo público.">
+                                <label title="No recomendado si accede desde un equipo p&uacute;blico.">
                                     @*@Html.EditorFor(model => model.RememberMe, "", new { type = "checkbox" })*@
 
                                     <input type="checkbox" name="RememberMe" checked="checked" />
                                     <span class="spn0x24rememberMe">Recordarme</span>
                                 </label>
                                 <br />
-                                <a href="~/admin/recover" style="display:inline-block">¿Haz olvidado tu contraseña?</a>
-                                <a href="~/admin/registration" style="display:inline-block">¿No tienes una cuenta?</a>
+                                <a href="~/admin/recover" style="display:inline-block">&iquest;Haz olvidado tu contrase&ntilde;a?</a>
+                                <a href="~/admin/registration" style="display:inline-block">&iquest;No tienes una cuenta?</a>
                             </div>
                             <div class="col s5 right">
                                 <button type="submit" value="Acceder"
@@ -63,7 +63,7 @@
 else
 {
     <script>
-        alert('No es necesario iniciar sesión dos veces...');
+        alert('No es necesario iniciar sesi&oacute;n dos veces...');
         window.location.href = location.origin;
     </script>
 }

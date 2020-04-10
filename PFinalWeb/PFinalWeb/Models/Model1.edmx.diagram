@@ -4,10 +4,10 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="daa75d5886714aa98a29aa8d40e1d8e3" Name="Diagram1" ZoomLevel="84">
-        <EntityTypeShape EntityType="PFinalWebModel.Admins" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PFinalWebModel.Casos" Width="1.5" PointX="2.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PFinalWebModel.Noticias" Width="1.5" PointX="4.75" PointY="0.75" />
+      <Diagram DiagramId="daf0e9fff25346bca60b06995c52386c" Name="Diagram1">
+        <EntityTypeShape EntityType="PFinalWebModel.Admins" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFinalWebModel.Casos" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PFinalWebModel.Noticias" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

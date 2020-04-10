@@ -15,8 +15,8 @@
             <div class="center div-alert materialert success" style="width:100%;">
                 <h3 class="smallglass">
                     <strong>
-                        Te haz registrado correctamente, ahora debes validar tu correo electrónico
-                        <br />accediendo al código de verificación que se te ha enviado.
+                        Te haz registrado correctamente, ahora debes validar tu correo electr&oacute;nico
+                        <br />accediendo al c&oacute;digo de verificaci&oacute;n que se te ha enviado.
                     </strong>
                 </h3>
             </div>
@@ -51,7 +51,7 @@
                         <div class="row">
                             <div class="input-field col s8">
                                 <input id="email" type="text" class="validate smallnemo" name="Email" autocomplete="off">
-                                <label for="email" class="unableToSelect">Correo electrónico</label>
+                                <label for="email" class="unableToSelect">Correo electr&oacute;nico</label>
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "red-text unableToSelect" })
                                 @Html.ValidationMessage("EEKey", new { @class = "red-text unableToSelect" })
                             </div>
@@ -59,12 +59,12 @@
                         <div class="row">
                             <div class="input-field col s4">
                                 <input id="pw" type="password" class="validate" name="Password" autocomplete="off">
-                                <label for="pw" class="unableToSelect">Contraseña</label>
+                                <label for="pw" class="unableToSelect">Contrase&ntilde;a</label>
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "red-text unableToSelect" })
                             </div>
                             <div class="input-field col s4">
                                 <input id="cpw" type="password" class="validate" name="ConfirmPassword" autocomplete="off">
-                                <label for="cpw" class="unableToSelect">Confirmación</label>
+                                <label for="cpw" class="unableToSelect">Confirmaci&oacute;n</label>
                                 @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "red-text unableToSelect" })
                             </div>
                         </div>
@@ -85,7 +85,7 @@
 else
 {
     <script>
-        alert('No es necesario iniciar sesión dos veces...');
+        alert('No es necesario iniciar sesi&oacute;n dos veces...');
         window.location.href = location.origin;
     </script>
 }

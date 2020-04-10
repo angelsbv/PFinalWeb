@@ -25,7 +25,7 @@
                     <img class="casoImg activator" src="~/NOFOTO.png">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">@i.Nombre @i.Apellido<i class="material-icons right" title="Más información">more_vert</i></span>
+                    <span class="card-title activator grey-text text-darken-4">@i.Nombre @i.Apellido<i class="material-icons right" title="M&aacute;s informaci&oacute;n">more_vert</i></span>
                     @if (Request.IsAuthenticated)
                     {
                         <div>
@@ -40,11 +40,11 @@
                 </div>
                 <div class="card-reveal" style="color:#1b1b1b;">
                     <span class="card-title grey-text text-darken-4"><b>@i.Nombre @i.Apellido</b><i class="material-icons right">close</i></span>
-                    <span class="card-title grey-text text-darken-4"><b>Información</b></span>
+                    <span class="card-title grey-text text-darken-4"><b>Informaci&oacute;n</b></span>
                     <p><b>Fecha de contagio:</b> @i.FechaContagio.ToShortDateString()</p>
-                    <p><b>País:</b> @i.País</p>
+                    <p><b>Pa&iacute;s:</b> @i.País</p>
                     <p><b>Ciudad:</b> @i.Ciudad</p>
-                    <p><b>Cédula:</b> <span class="Ceds">@i.Cedula</span></p>
+                    <p><b>C&eacute;dula:</b> <span class="Ceds">@i.Cedula</span></p>
                     <p><b>Fecha de nacimiento:</b> @i.FechaNacimiento.ToShortDateString()</p>
                     <p>
                         <b>

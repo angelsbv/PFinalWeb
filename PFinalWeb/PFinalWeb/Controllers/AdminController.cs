@@ -51,13 +51,13 @@ namespace PFinalWeb.Controllers
             {
                 if (ctx.Admins.Any(e => e.Email == admin.Email))
                 {
-                    ModelState.AddModelError("EEKey", "Este correo electrónico no está disponible."); //Email Exists Key
+                    ModelState.AddModelError("EEKey", "Este correo electr&oacute;nico no est&aacute; disponible."); //Email Exists Key
                     return View(admin);
                 }
 
                 if(ctx.Admins.Any(e => e.UserName == admin.UserName))
                 {
-                    ModelState.AddModelError("UEKey", "Este nombre de usuario ya está en uso."); //User Exists Key
+                    ModelState.AddModelError("UEKey", "Este nombre de usuario ya est&aacute; en uso."); //User Exists Key
                     return View(admin);
                 }
 
@@ -72,7 +72,7 @@ namespace PFinalWeb.Controllers
 
                 SendVerificationCode(admin.Email, admin.VerificationCode.ToString());
                 msg = "Su registro se ha completado exitosamente." +
-                    "Ahora debe activar su cuenta accediendo a su correo electrónico.";
+                    "Ahora debe activar su cuenta accediendo a su correo electr&oacute;nico.";
                 status = true;
             }
             ViewBag.Msg = msg;
@@ -94,7 +94,7 @@ namespace PFinalWeb.Controllers
             }
             else
             {
-                ViewBag.Msg = "Solicitud inválida. Al parecer tu correo electrónico ya está validado";
+                ViewBag.Msg = "Solicitud inv&aacute;lida. Al parecer tu correo electr&oacute;nico ya est&aacute; validado";
             }
             ViewBag.Status = status;
             return View();
@@ -118,18 +118,18 @@ namespace PFinalWeb.Controllers
                 subject = $"¡Tu cuenta ha sido creada!";
                 body = "<br/><br/> " +
                     "Ahora necesitamos comprobar que eres tu. Haz click en el siguiente enlace para verificar tu cuenta " +
-                    "y así completar tu registro: " +
+                    "y as&iacute; completar tu registro: " +
                     "<a href=" + link + ">" + link + "</a>";
             }
             else if(emailFor == "ResetPW")
             {
-                subject = $"Recuperación de cuenta";
+                subject = $"Recuperaci&oacute;n de cuenta";
                 body = "<br/><br/> " +
-                    "Hemos recibido una solicitud de recuperación de cuenta. " +
+                    "Hemos recibido una solicitud de recuperaci&oacute;n de cuenta. " +
                     "Si desea recuperar su cuenta haga click en el siguiente enlace: " +
-                    "<a href=" + link + ">" + link + "</a> de lo contrario borre este correo electrónico." +
-                    "<br/><br/><small>Este mensaje puede contener información confidencial. Por lo que si usted no " +
-                    "ha solicitado esta recuperación debe ignorar y/o eliminar el mismo.</small>";
+                    "<a href=" + link + ">" + link + "</a> de lo contrario borre este correo electr&oacute;nico." +
+                    "<br/><br/><small>Este mensaje puede contener informaci&oacute;n confidencial. Por lo que si usted no " +
+                    "ha solicitado esta recuperaci&oacute;n debe ignorar y/o eliminar el mismo.</small>";
             }
 
             var smtp = new SmtpClient
@@ -195,7 +195,7 @@ namespace PFinalWeb.Controllers
             }
             else
             {
-                msg = "Algo no anda bien con sus credenciales. Estamos seguros que digitó datos incorrectos.";
+                msg = "Algo no anda bien con sus credenciales. Estamos seguros que digit&oacute; datos incorrectos.";
             }
             TempData["Msg"] = msg;
             return RedirectToAction(nameof(Login));
@@ -232,7 +232,7 @@ namespace PFinalWeb.Controllers
                 ctx.SaveChanges();
                 status = true;
                 res = "Ahora necesitamos verificar que eres tu. " +
-                    "Hemos enviado el código de verificación a tu correo electrónico.";
+                    "Hemos enviado el c&oacute;digo de verificaci&oacute;n a tu correo electr&oacute;nico.";
             }
             else
             {
@@ -272,11 +272,11 @@ namespace PFinalWeb.Controllers
                     adm.RecoverPWDCode = "";
                     ctx.Configuration.ValidateOnSaveEnabled = false;
                     ctx.SaveChanges();
-                    msg = "La nueva contraseña ha sido establecida correctamente.";
+                    msg = "La nueva contrase&ntilde;a ha sido establecida correctamente.";
                 }
                 else
                 {
-                    msg = "El código no es válido.";
+                    msg = "El c&oacute;digo no es v&aacute;lido.";
                 }
             }
             else

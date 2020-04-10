@@ -29,13 +29,13 @@
 
     <div class="input-field col s4">
         @Html.EditorFor(model => model.Cedula, new { htmlAttributes = new { @class = "" } })
-        <label for="cedula" class="unableToSelect">Cédula</label>
+        <label for="cedula" class="unableToSelect">C&eacute;dula</label>
         @Html.ValidationMessageFor(model => model.Cedula, "", new { @class = "red-text unableToSelect" })
     </div>
 
     <div class="input-field col s4">
         @Html.EditorFor(model => model.País, new { htmlAttributes = new { @class = "" } })
-        <label for="pais" class="unableToSelect">País</label>
+        <label for="pais" class="unableToSelect">Pa&iacute;s</label>
         @Html.ValidationMessageFor(model => model.País, "", new { @class = "red-text unableToSelect" })
     </div>
 
@@ -47,13 +47,13 @@
 
     <div class="input-field col s4">
         @Html.LabelFor(model => model.Latitud, htmlAttributes: new { })
-        @Html.EditorFor(model => model.Latitud, new { htmlAttributes = new { @class = "", type = "number" } })
+        @Html.EditorFor(model => model.Latitud, new { htmlAttributes = new { @class = "" } })
         @Html.ValidationMessageFor(model => model.Latitud, "", new { @class = "red-text unableToSelect" })
     </div>
 
     <div class="input-field col s4">
         @Html.LabelFor(model => model.Longitud, htmlAttributes: new { @class = "" })
-        @Html.EditorFor(model => model.Longitud, new { htmlAttributes = new { @class = "", type = "number" } })
+        @Html.EditorFor(model => model.Longitud, new { htmlAttributes = new { @class = "" } })
         @Html.ValidationMessageFor(model => model.Longitud, "", new { @class = "red-text unableToSelect" })
     </div>
 

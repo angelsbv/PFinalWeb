@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="PFinalWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PFinalWebModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="UserID" />
@@ -44,30 +44,26 @@
           <Property Name="Fecha" Type="date" Nullable="false" />
           <Property Name="Resumen" Type="text" Nullable="false" />
           <Property Name="Foto" Type="image" Nullable="false" />
-          <Property Name="Contenido" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Contenido" Type="varchar" MaxLength="1000" Nullable="false" />
         </EntityType>
         <EntityContainer Name="PFinalWebModelStoreContainer">
           <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Casos" EntityType="Self.Casos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Noticias" EntityType="Self.Noticias" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PFinalWebModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="PFinalWebContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Admins" EntityType="PFinalWebModel.Admins" />
-          <EntitySet Name="Casos" EntityType="PFinalWebModel.Casos" />
-          <EntitySet Name="Noticias" EntityType="PFinalWebModel.Noticias" />
-        </EntityContainer>
         <EntityType Name="Admins">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="320" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="320" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="IsEmailVerified" Type="Boolean" Nullable="false" />
           <Property Name="VerificationCode" Type="Guid" Nullable="false" />
           <Property Name="RegisterDate" Type="DateTime" Precision="3" />
@@ -79,15 +75,15 @@
             <PropertyRef Name="IDCaso" />
           </Key>
           <Property Name="IDCaso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Apellido" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Cedula" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="País" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Ciudad" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="Latitud" Type="Decimal" Nullable="false" Precision="9" Scale="6" />
-          <Property Name="Longitud" Type="Decimal" Nullable="false" Precision="9" Scale="6" />
+          <Property Name="Nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellido" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Cedula" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="País" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ciudad" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Latitud" Type="Decimal" Precision="9" Scale="6" Nullable="false" />
+          <Property Name="Longitud" Type="Decimal" Precision="9" Scale="6" Nullable="false" />
           <Property Name="FechaNacimiento" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Comentario" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="FechaContagio" Type="DateTime" Nullable="false" Precision="0" />
         </EntityType>
         <EntityType Name="Noticias">
@@ -95,13 +91,18 @@
             <PropertyRef Name="IDNew" />
           </Key>
           <Property Name="IDNew" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Titulo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Titulo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Fecha" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="Resumen" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Foto" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
-          <Property Name="Contenido" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Resumen" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Foto" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="Contenido" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        </Schema>
+        <EntityContainer Name="PFinalWebContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admins" />
+          <EntitySet Name="Casos" EntityType="Self.Casos" />
+          <EntitySet Name="Noticias" EntityType="Self.Noticias" />
+        </EntityContainer>
+      </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -110,44 +111,44 @@
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="PFinalWebModel.Admins">
               <MappingFragment StoreEntitySet="Admins">
-                <ScalarProperty Name="RecoverPWDCode" ColumnName="RecoverPWDCode" />
-                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
-                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
-                <ScalarProperty Name="VerificationCode" ColumnName="VerificationCode" />
-                <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+                <ScalarProperty Name="VerificationCode" ColumnName="VerificationCode" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="RecoverPWDCode" ColumnName="RecoverPWDCode" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Casos">
             <EntityTypeMapping TypeName="PFinalWebModel.Casos">
               <MappingFragment StoreEntitySet="Casos">
-                <ScalarProperty Name="FechaContagio" ColumnName="FechaContagio" />
-                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
-                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
-                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
-                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
-                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
-                <ScalarProperty Name="País" ColumnName="País" />
-                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
-                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="IDCaso" ColumnName="IDCaso" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Cedula" ColumnName="Cedula" />
+                <ScalarProperty Name="País" ColumnName="País" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+                <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="FechaContagio" ColumnName="FechaContagio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Noticias">
             <EntityTypeMapping TypeName="PFinalWebModel.Noticias">
               <MappingFragment StoreEntitySet="Noticias">
-                <ScalarProperty Name="Contenido" ColumnName="Contenido" />
-                <ScalarProperty Name="Foto" ColumnName="Foto" />
-                <ScalarProperty Name="Resumen" ColumnName="Resumen" />
-                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
                 <ScalarProperty Name="IDNew" ColumnName="IDNew" />
+                <ScalarProperty Name="Titulo" ColumnName="Titulo" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="Resumen" ColumnName="Resumen" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Contenido" ColumnName="Contenido" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

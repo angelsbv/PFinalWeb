@@ -519,6 +519,7 @@
     <Content Include="Models\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Resources\leaflet\dist\images\layers-2x.png" />
     <Content Include="Resources\leaflet\dist\images\layers.png" />

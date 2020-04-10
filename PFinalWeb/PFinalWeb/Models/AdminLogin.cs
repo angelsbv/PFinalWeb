@@ -11,7 +11,7 @@ namespace PFinalWeb.Models
         [Required(ErrorMessage = "Debe digitar su nombre de usuario.", AllowEmptyStrings = false)]
         public string Username { get; set; }
 
-        [Required(ErrorMessage = "Debe digitar su contraseña.", AllowEmptyStrings = false)]
+        [Required(ErrorMessage = "Debe digitar su contrase&ntilde;a.", AllowEmptyStrings = false)]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 

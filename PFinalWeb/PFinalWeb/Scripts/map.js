@@ -79,7 +79,7 @@ const loadMap = async function()
             //coords(lat, long) desde origin/Coords.asmx/GetCoords
             var point = [data[i][3], data[i][4]];
             var marker = L.marker(point).bindPopup(`${data[i][1]} ${data[i][2]}
-            <br/><a href="${getCorrectPath(`/Home/Casos/${data[i][0]}`)}">Más información</a>`);
+            <br/><a href="${getCorrectPath(`/Home/Casos/${data[i][0]}`)}">M&aacute;s informaci&oacute;n</a>`);
             marker.addTo(map); //
         }
 
@@ -89,7 +89,7 @@ const loadMap = async function()
         //     markerColor: 'red',
         //     shape: 'circle',
         //     prefix: 'fas'
-        //   }).bindPopup(`Localización`);
+        //   }).bindPopup(`Localizaci&oacute;n`);
         // L.marker(point, {icon: redMarker}).addTo(map);
     }
     preLoader(true);

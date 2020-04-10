@@ -57,7 +57,7 @@
                     @if (!Request.IsAuthenticated)
                     {
                         <li class="right" style="margin-right:19%;">
-                            <a href="~/admin/login">Iniciar Sesión (Admin)</a>
+                            <a href="~/admin/login">Iniciar Sesi&oacute;n (Admin)</a>
                         </li>
                     }
                     else
@@ -65,7 +65,7 @@
                         using (Html.BeginForm("Logout", "Admin", FormMethod.Post, new { id = "logoutForm" }))
                         {
                             <li class="right" style="margin-right:19%;">
-                                <a href="javascript:if(confirm('¿Seguro que desea cerrar sesión?'))document.querySelector('#logoutForm').submit()">Cerrar sesión</a>
+                                <a href="javascript:if(confirm('¿Seguro que desea cerrar sesi&oacute;n?'))document.querySelector('#logoutForm').submit()">Cerrar sesi&oacute;n</a>
                             </li>
                         }
                         <li class="right">
@@ -119,7 +119,7 @@
             {
                 <li class="collection-item">
                     <a href="~/admin/login">
-                        Iniciar Sesión (Admin)
+                        Iniciar Sesi&oacute;n (Admin)
                         <span class="secondary-content"><i class="material-icons">send</i></span>
                     </a>
                 </li>
